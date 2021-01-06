@@ -11,10 +11,23 @@ const Home = () => {
     {title: 'Go to a time you already exist', body: 'What did you learn? you bloody bastard!', author: 'Stewie G. Griffin', id: 5},
   ]);
 
+  const handleDelete = (id) => {
+    const newBlog = blogs.filter(blog => blog.id !== id);
+    setBlogs(newBlog);
+  }
+
   return (
     <div className='home'>
-     <BlogList blogs={blogs} title='All Blogs'/>
-     <BlogList blogs={blogs.filter(blog => blog.author === 'Stewie G. Griffin')} title='Stewie s Blogs'/>
+     <BlogList 
+      blogs={blogs} 
+      title='All Blogs' 
+      handleDelete={handleDelete} 
+    />
+     <BlogList 
+      blogs={blogs.filter(blog => blog.author === 'Stewie G. Griffin')} 
+      title='Stewie s Blogs'
+      handleDelete={handleDelete}
+    />
 
     </div>
   );
