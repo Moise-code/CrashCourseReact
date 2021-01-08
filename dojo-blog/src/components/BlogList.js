@@ -1,4 +1,4 @@
-const BlogList = ({ title, blogs, handleDelete }) => {
+const BlogList = ({ title, blogs }) => {
   //const blogs = prop.blogs
   //const title = prop.title
   return(
@@ -8,7 +8,7 @@ const BlogList = ({ title, blogs, handleDelete }) => {
         <div className="blog-preview" key={blog.id}>
           <h2>{ blog.title }</h2>
           <p>Written by: { blog.author }</p>
-          <button onClick={() => handleDelete(blog.id)}>Remove blog</button>
+          
         </div>
 
       ))}
@@ -20,3 +20,11 @@ const BlogList = ({ title, blogs, handleDelete }) => {
 export default BlogList;
 
 
+
+
+
+/*
+<button onClick={() => handleDelete(blog.id)}>Remove blog</button>
+
+
+*/

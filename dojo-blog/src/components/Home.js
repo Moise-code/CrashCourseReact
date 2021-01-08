@@ -5,26 +5,24 @@ import BlogList from './BlogList';
 const Home = () => {
   const [blogs, setBlogs] = useState(null);
 
-
-
-  const handleDelete = (id) => {
-    const newBlog = blogs.filter(blog => blog.id !== id);
-    setBlogs(newBlog);
-  }
-
   //useEffect after the component render
   useEffect(() => {
-    console.log('I am running after the component has rendered!');
+    fetch('http://localhost:8000/blogs')
+      .then(res => {
+        return res.json()
+      })
+      .then(data => {
+        setBlogs(data);
+      });
+
   }, []);
   
 
   return (
     <div className='home'>
-     <BlogList 
-      blogs={blogs} 
-      title='All Blogs' 
-      handleDelete={handleDelete} 
-    />
+    {
+      blogs && <BlogList blogs={blogs} title='All Blogs' />
+    } 
      
     
     </div>
@@ -35,6 +33,11 @@ export default Home;
 
 
 /*
+const handleDelete = (id) => {
+    const newBlog = blogs.filter(blog => blog.id !== id);
+    setBlogs(newBlog);
+  }
+
  <BlogList 
       blogs={blogs.filter(blog => blog.author === 'Stewie G. Griffin')} 
       title='Stewie s Blogs'
