@@ -4,25 +4,33 @@ import BlogList from './BlogList';
 
 const Home = () => {
   const [blogs, setBlogs] = useState(null);
+  const [isLoading, setLoading] = useState(true);
 
-  //useEffect after the component render
+  //useEffect render after the component render
   useEffect(() => {
     fetch('http://localhost:8000/blogs')
       .then(res => {
+        if (!res.ok){
+          throw Error('Couldn\'t fetch the data for that resource')
+        }
         return res.json()
       })
       .then(data => {
         setBlogs(data);
-      });
+        setLoading(false);
+      })
+      .catch(error => {
+        console.log(error.message);
+      })
+      
 
   }, []);
   
 
   return (
     <div className='home'>
-    {
-      blogs && <BlogList blogs={blogs} title='All Blogs' />
-    } 
+      { isLoading && <div className='loader'>Loading...</div> }
+      { blogs && <BlogList blogs={blogs} title='All Blogs' /> } 
      
     
     </div>
