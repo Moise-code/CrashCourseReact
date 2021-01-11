@@ -5,22 +5,25 @@ import BlogList from './BlogList';
 const Home = () => {
   const [blogs, setBlogs] = useState(null);
   const [isLoading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   //useEffect render after the component render
   useEffect(() => {
     fetch('http://localhost:8000/blogs')
       .then(res => {
         if (!res.ok){
-          throw Error('Couldn\'t fetch the data for that resource')
+          throw Error('Couldn\'t fetch the data for that resource');
         }
         return res.json()
       })
       .then(data => {
         setBlogs(data);
         setLoading(false);
+        setError(null);
       })
-      .catch(error => {
-        console.log(error.message);
+      .catch(err => {
+        setLoading(false);
+        setError(err.message);
       })
       
 
@@ -29,6 +32,7 @@ const Home = () => {
 
   return (
     <div className='home'>
+      { error && <div>{ error }</div> }
       { isLoading && <div className='loader'>Loading...</div> }
       { blogs && <BlogList blogs={blogs} title='All Blogs' /> } 
      
