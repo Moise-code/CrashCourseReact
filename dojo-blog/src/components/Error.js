@@ -1,8 +1,10 @@
+import { Link } from 'react-router-dom';
+
 const Error = () => {
   return(
     <div className="errors">
       <h2>Oops, that page does not exist!</h2>
-      <a href="/" className="back">Back to Home!</a>
+      <Link to="/" className="back">Back to Home!</Link>
     </div>
   );
 }
