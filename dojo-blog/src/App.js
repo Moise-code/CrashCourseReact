@@ -3,6 +3,7 @@ import Home from './components/Home'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Create from './components/Create';
 import Error from './components/Error';
+import BlogDetails from './BlogDetails';
 
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
           </Route>
           <Route path="/create">
             <Create />
+          </Route>
+          <Route path="/blogs/:id">
+            <BlogDetails />
           </Route>
           <Route path="/error">
             <Error />

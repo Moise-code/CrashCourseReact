@@ -14,7 +14,7 @@ const useFetch = (url) => {
         if (!res.ok){
           throw Error('Couldn\'t fetch the data for that resource');
         }
-        return res.json()
+        return res.json();
       })
       .then(data => {
         setData(data);

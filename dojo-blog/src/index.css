@@ -101,5 +101,7 @@
   padding: 10px
 }
 
-
+.blog-preview a {
+  text-decoration: none;
+}
 
