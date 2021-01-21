@@ -1,13 +1,13 @@
 import { useState } from 'react';
-
+import { useHistory } from 'react-router-dom'
 
 
 const Create = () => {
   const[title, setTitle] = useState('');
   const[body, setBody] = useState('');
   const[author, setAuthor] = useState('mario');
-  const [isLoading, setIsLoading] = useState(false);
-
+  const[isLoading, setIsLoading] = useState(false);
+  const history = useHistory();
 
 
   const handleSubmit = (e) => {
@@ -23,8 +23,11 @@ const Create = () => {
     .then(() => {
       console.log('new blog added.');
       setIsLoading(false);
-  
-    })
+      //history.go(-1)
+      //redirecting to home page
+      history.push('/');
+    });
+
 
   }
 
