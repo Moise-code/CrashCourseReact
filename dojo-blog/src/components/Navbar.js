@@ -9,7 +9,7 @@ const Navbar = () => {
         <Link to="/create" style={{
           color: 'white',
           backgroundColor: '#f1356d',
-          borderRadius: '8px'
+          borderRadius: '9px'
         }}>New Blog</Link>
       </div>
     </nav>
