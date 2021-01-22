@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const Error = () => {
+const NotFound = () => {
   return(
     <div className="errors">
       <h2>Oops, that page does not exist!</h2>
@@ -9,5 +9,5 @@ const Error = () => {
   );
 }
 
-export default Error;
+export default NotFound;
 
