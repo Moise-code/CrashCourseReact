@@ -20,6 +20,7 @@ const Header = () => {
         <motion.h1 
           initial={{ y: -250 }}//starting point 
           animate={{ y: -10 }}//ending point
+          transition={{ delay: 0.2, typpe: 'spring', stiffness: 120 }}//spring is the default type. Other types: tween,
         >
           Pizza Joint
         </motion.h1>

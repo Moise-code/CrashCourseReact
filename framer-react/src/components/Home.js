@@ -8,10 +8,15 @@ const Home = () => {
     <motion.div className="home container"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
+      transition={{ delay: 1, duration: 1.5 }}// default type is tween. Duration can only be used if the type is tween
     >
       <h2>Welcome to Pizza Joint</h2>
       <Link to="/base">
-        <motion.button animate={{}}>
+        <motion.button whileHover={{ 
+          scale: 1.1,
+          textShadow: '0px 0px 8px rgb(255,255,255)',
+          boxShadow: '0px 0px 8px rgb(255,255,255)',
+        }}>
           Create Your Pizza
         </motion.button>
       </Link>
