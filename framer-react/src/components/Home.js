@@ -9,9 +9,13 @@ const buttonVariant = {
   //  transition: { delay: 2 }
   //},
   hover: {
-    scale: [1, 1.1, 1, 1.1, 1, 1.1, 1],//key frames to different properties
+    scale: 1.1,   //[1, 1.1, 1, 1.1, 1, 1.1, 1],//key frames to different properties
     textShadow: '0px 0px 8px rgb(255,255,255)',
     boxShadow: '0px 0px 8px rgb(255,255,255)',
+    transition: {
+      duration: 0.3,
+      yoyo: Infinity,
+    }
   }
 }
 
